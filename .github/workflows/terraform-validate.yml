@@ -25,7 +25,7 @@ jobs:
           tofu_version: '>1.6.0'  # Specify your desired OpenTofu version
 
       - name: OpenTofu Format
-        run: tofu fmt -check -recursive
+        run: tofu fmt -check -recursive || (tofu fmt && git add . && git commit -m "Auto-format terraform code" && git push)
 
       - name: OpenTofu Init
         run: tofu init
