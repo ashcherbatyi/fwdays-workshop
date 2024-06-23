@@ -54,8 +54,6 @@ resource "github_branch_protection" "main" {
     require_code_owner_reviews      = true
     required_approving_review_count = 2 # Updated to 2 approvals
   }
-
-
 }
 
 # ==========================================

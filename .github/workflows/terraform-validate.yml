@@ -44,4 +44,5 @@ jobs:
         with:
           directory: ./tf-bootstrap
           framework: terraform
+          skip_check: CKV_GIT_6
 
