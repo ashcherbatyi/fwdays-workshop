@@ -9,7 +9,7 @@ on:
 jobs:
 
   tofu-terraform-validate:
-    name: 'OpenTofu'
+    name: 'OpenTofu+Checkov'
     runs-on: ubuntu-latest
     defaults:
       run:
