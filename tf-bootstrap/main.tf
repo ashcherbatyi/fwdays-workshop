@@ -37,27 +37,27 @@ resource "github_repository" "this" {
 
   # Enable vulnerability alerts
   vulnerability_alerts = true
+}
+ resource "github_branch_protection" "main" {
+  repository_id = github_repository.this.node_id
+  pattern       = "main"
 
-  # Branch protection
-  branch_protection {
-    pattern        = "main"
-    enforce_admins = true
+  required_status_checks {
+    strict   = true
+    contexts = ["validate"]
+  }
 
-    required_pull_request_reviews {
-      dismiss_stale_reviews           = true
-      require_code_owner_reviews      = true
-      required_approving_review_count = 1
-    }
+  enforce_admins = true
 
-    required_status_checks {
-      strict   = true
-      contexts = ["validate"]
-    }
+  required_pull_request_reviews {
+    dismiss_stale_reviews          = true
+    require_code_owner_reviews     = true
+    required_approving_review_count = 1
+  }
 
-    restrictions {
-      users = []
-      teams = []
-    }
+  restrictions {
+    users = []
+    teams = []
   }
 }
 
