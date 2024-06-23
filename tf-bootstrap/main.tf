@@ -55,9 +55,6 @@ resource "github_branch_protection" "main" {
     required_approving_review_count = 2 # Updated to 2 approvals
   }
 
-  required_signatures {
-    enabled = true # Enable signed commits
-  }
 
 }
 
